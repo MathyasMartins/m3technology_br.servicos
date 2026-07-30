@@ -136,7 +136,7 @@ section {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     color: white;
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     z-index: 1000;
     box-shadow: var(--shadow-md);
 }
@@ -152,23 +152,39 @@ section {
 
 .logo {
     display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.logo-text-wrapper {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 800;
     margin: 0;
     color: white;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
 }
 
 .logo-subtitle {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: var(--primary-cyan);
     margin: 0;
     font-family: 'Inter', sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .nav-menu {
@@ -225,7 +241,7 @@ section {
     background: radial-gradient(circle at center, #0d223a 0%, var(--bg-main) 70%);
     color: white;
     padding: 8rem 0 6rem;
-    margin-top: 70px;
+    margin-top: 65px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -319,7 +335,7 @@ section {
 .btn-contact {
     margin: 2rem auto 0;
     display: flex;
-    max-width: 320px;
+    max-width: 340px;
 }
 
 /* ========================================
@@ -332,6 +348,8 @@ section {
 
 .services-section-alt {
     background-color: var(--bg-alt);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .services-grid {
@@ -397,25 +415,70 @@ section {
 }
 
 .card-price {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--primary-cyan);
     margin-top: 1rem;
 }
 
-.services-note {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-top: 2rem;
+/* ========================================
+   8. NOSSO ESPAÇO / LABORATÓRIO
+   ======================================== */
+
+.shop-section {
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.shop-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 2px solid var(--primary-cyan);
+    box-shadow: var(--shadow-glow);
+}
+
+.shop-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.shop-image:hover img {
+    transform: scale(1.05);
+}
+
+.shop-content h2 {
+    color: var(--primary-cyan);
+    margin-bottom: 1.5rem;
+}
+
+.shop-list {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.shop-list li {
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
+    font-weight: 500;
 }
 
 /* ========================================
-   8. PACOTES E PROMOÇÕES
+   9. PACOTES E PROMOÇÕES
    ======================================== */
 
 .packages-section {
     background-color: var(--bg-alt);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .packages-grid {
@@ -490,7 +553,7 @@ section {
 }
 
 /* ========================================
-   9. SEÇÃO DE CONFIANÇA
+   10. SEÇÃO DE CONFIANÇA
    ======================================== */
 
 .trust-section {
@@ -536,11 +599,13 @@ section {
 }
 
 /* ========================================
-   10. SEÇÃO DE FAQ (DÚVIDAS FREQUENTES)
+   11. SEÇÃO DE FAQ (DÚVIDAS FREQUENTES)
    ======================================== */
 
 .faq-section {
     background-color: var(--bg-alt);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .faq-grid {
@@ -573,7 +638,7 @@ section {
 }
 
 /* ========================================
-   11. CONTATO
+   12. CONTATO
    ======================================== */
 
 .contact-section {
@@ -624,7 +689,7 @@ section {
 }
 
 /* ========================================
-   12. FOOTER
+   13. FOOTER
    ======================================== */
 
 .footer {
@@ -676,7 +741,7 @@ section {
 }
 
 /* ========================================
-   13. BOTÃO FLUTUANTE WHATSAPP
+   14. BOTÃO FLUTUANTE WHATSAPP
    ======================================== */
 
 .whatsapp-float {
@@ -707,7 +772,7 @@ section {
 }
 
 /* ========================================
-   14. ANIMAÇÕES
+   15. ANIMAÇÕES
    ======================================== */
 
 @keyframes slideInDown {
@@ -742,7 +807,7 @@ section {
 }
 
 /* ========================================
-   15. RESPONSIVIDADE
+   16. RESPONSIVIDADE
    ======================================== */
 
 @media (max-width: 768px) {
@@ -760,14 +825,6 @@ section {
 
     body {
         font-size: 15px;
-    }
-
-    .header {
-        padding: 0.75rem 0;
-    }
-
-    .logo-text {
-        font-size: 1.2rem;
     }
 
     .menu-toggle {
@@ -824,6 +881,24 @@ section {
         grid-template-columns: 1fr;
     }
 
+    .shop-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .shop-content {
+        text-align: center;
+    }
+
+    .shop-content h2 {
+        text-align: center !important;
+    }
+
+    .shop-list {
+        display: inline-block;
+        text-align: left;
+    }
+
     .package-featured {
         transform: scale(1);
     }
@@ -857,8 +932,16 @@ section {
         font-size: 1rem;
     }
 
-    body {
-        font-size: 14px;
+    .logo-img {
+        height: 38px;
+    }
+
+    .logo-text {
+        font-size: 1.05rem;
+    }
+
+    .logo-subtitle {
+        display: none;
     }
 
     .container {

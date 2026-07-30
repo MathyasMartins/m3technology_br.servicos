@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta name="description"
-        content="Assistência técnica rápida e confiável. Conserto de computadores, notebooks e celulares Android. Diagnóstico preciso e preço justo." />
-    <title>M³ Technology | Assistência Técnica em Informática e Celulares</title>
-
-    <meta property="og:title" content="M³ Technology - Manutenção de Computadores e Celulares" />
-    <meta property="og:description" content="Seu PC ou celular rápido de novo. Atendimento ágil e garantia no serviço!" />
-    <meta property="og:image" content="./image/imagemTrocaSSD.webp" />
-    <meta property="og:type" content="website" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
-        rel="stylesheet" />
-
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M³ Technology | Assistência Técnica & Soluções em TI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
     <header class="header" id="header">
         <div class="header-container">
-            <div class="logo">
-                <h1 class="logo-text">M³ Technology</h1>
-                <p class="logo-subtitle">Suporte & Manutenção Especializada</p>
-            </div>
+            <a href="#hero" class="logo">
+                <img src="./image/logo M³.png" alt="M³ Technology Logo" class="logo-img" />
+                <div class="logo-text-wrapper">
+                    <h1 class="logo-text">M³ TECHNOLOGY</h1>
+                    <p class="logo-subtitle">Software • Infraestrutura • Inovação</p>
+                </div>
+            </a>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -40,6 +30,7 @@
             <nav class="nav-menu" id="navMenu">
                 <a href="#servicos-computadores" class="nav-link">Computadores</a>
                 <a href="#servicos-celulares" class="nav-link">Celulares</a>
+                <!-- <a href="#loja" class="nav-link">Nosso Espaço</a> -->
                 <a href="#pacotes" class="nav-link">Pacotes</a>
                 <a href="#faq" class="nav-link">Dúvidas</a>
                 <a href="#contato" class="nav-link">Contato</a>
@@ -49,228 +40,175 @@
 
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Seu computador ou celular novo de novo</h1>
-            <p class="hero-subtitle">
-                PC lento, travando ou esquentando? Resolvemos seu problema com diagnóstico rápido, preço justo e garantia no serviço.
-            </p>
-            <a href="https://wa.me/5599984365064?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento."
-                class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
-                Solicitar Orçamento via WhatsApp
-            </a>
+            <h1 class="hero-title">Especialistas em Manutenção e Performance Técnica</h1>
+            <p class="hero-subtitle">Reparação rápida, diagnóstico preciso e suporte de infraestrutura para computadores, notebooks e telemóveis.</p>
+            <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-primary btn-large">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
     <section class="services-section" id="servicos-computadores">
         <div class="container">
-            <h2 class="section-title">Computadores e Notebooks</h2>
-            <p class="section-subtitle">Aumente o desempenho e a vida útil do seu equipamento</p>
-
+            <h2 class="section-title">Serviços para Computadores e Notebooks</h2>
+            <p class="section-subtitle">Soluções completas para otimizar, reparar e prevenir falhas no seu equipamento.</p>
+            
             <div class="services-grid">
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="./image/qual-a-importancia-de-higienizar-internamente-computadores-e-notebooks-20220222162556.webp.webp"
-                            alt="Limpeza e manutenção interna de computador" />
+                        <img src="./image/manutencao.jpg" alt="Formatacao e Otimizacao">
                     </div>
                     <div class="card-content">
-                        <h3>Higienização & Troca de Pasta Térmica</h3>
-                        <p>Limpeza profunda contra poeira para eliminar superaquecimento e barulhos.</p>
-                        <div class="card-price">R$ 120,00</div>
+                        <h3>Formatação e Instalação de Sistema</h3>
+                        <p>Instalação limpa do Windows/Linux com cópia de segurança completa de ficheiros, drivers atualizados e programas essenciais.</p>
+                        <span class="card-price">A partir de R$ --</span>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="./image/Imagem Formatacion.png" alt="Formatação e Instalação do Windows" />
+                        <img src="./image/limpeza.jpg" alt="Limpeza de Hardware">
                     </div>
                     <div class="card-content">
-                        <h3>Formatação Completa + Drivers</h3>
-                        <p>Reinstalação limpa do Windows com ativação de drivers e programas essenciais.</p>
-                        <div class="card-price">R$ 130,00</div>
+                        <h3>Limpeza Preventiva e Pasta Térmica</h3>
+                        <p>Desmontagem técnica, remoção de poeira e troca de pasta térmica de alta condutividade para evitar sobreaquecimento.</p>
+                        <span class="card-price">A partir de R$ --</span>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="./image/VirusRemoval.png" alt="Remoção de vírus e limpeza de sistema" />
+                        <img src="./image/upgrade.jpg" alt="Upgrade de SSD e Memoria">
                     </div>
                     <div class="card-content">
-                        <h3>Remoção de Vírus & Malwares</h3>
-                        <p>Limpeza de programas maliciosos e otimização para navegação segura.</p>
-                        <div class="card-price">R$ 100,00</div>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="./image/imagemTrocaSSD.webp" alt="Instalação de SSD para alta velocidade" />
-                    </div>
-                    <div class="card-content">
-                        <h3>Upgrade com SSD (Atê 10x mais rápido)</h3>
-                        <p>Instalação de SSD e migração do sistema para inicialização instantânea.</p>
-                        <div class="card-price">R$ 100,00</div>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="./image/istockphoto-1370904031-612x612-1.webp" alt="Troca de bateria de notebook" />
-                    </div>
-                    <div class="card-content">
-                        <h3>Troca de Bateria (Notebook)</h3>
-                        <p>Substituição por componentes novos com teste de autonomia.</p>
-                        <div class="card-price">R$ 150,00</div>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="./image/conserto-placa-mae-notebook-em-aguas-claras-netshop.webp"
-                            alt="Reparo de placas e componentes de hardware" />
-                    </div>
-                    <div class="card-content">
-                        <h3>Reparo e Manutenção de Hardware</h3>
-                        <p>Diagnóstico completo e substituição de peças com defeito.</p>
-                        <div class="card-price">~ R$ 200,00</div>
+                        <h3>Upgrade de SSD e Memória RAM</h3>
+                        <p>Aumente a velocidade do seu computador em até 10x substituindo o disco rígido antigo por SSD de alta velocidade.</p>
+                        <span class="card-price">A partir de R$ --</span>
                     </div>
                 </div>
             </div>
-
-            <p class="services-note">* Valores de mão de obra. Peças de reposição são cobradas à parte conforme o modelo.</p>
         </div>
     </section>
 
-    <section class="services-section services-section-alt" id="servicos-celulares">
+    <section class="services-section-alt" id="servicos-celulares">
         <div class="container">
-            <h2 class="section-title">Serviços para Celulares Android</h2>
-            <p class="section-subtitle">Configurações, segurança e recuperação de dados</p>
+            <h2 class="section-title">Assistência Técnica para Telemóveis</h2>
+            <p class="section-subtitle">Reparação rápida com peças de alta qualidade e garantia de serviço.</p>
 
             <div class="services-grid">
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="./image/confiCellNew.webp" alt="Configuração de celular novo" />
+                        <img src="./image/troca-tela.jpg" alt="Troca de Ecrã">
                     </div>
                     <div class="card-content">
-                        <h3>Configuração de Aparelho Novo</h3>
-                        <p>Transferência completa de dados, fotos e aplicativos do celular antigo.</p>
-                        <div class="card-price">R$ 60,00</div>
+                        <h3>Troca de Ecrã / Display</h3>
+                        <p>Substituição de ecrãs partidos ou com falhas de toque por componentes homologados e com garantia de fábrica.</p>
+                        <span class="card-price">Sob Consulta</span>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="./image/backupCelular.png" alt="Backup de fotos e arquivos" />
+                        <img src="./image/troca-bateria.jpg" alt="Troca de Bateria">
                     </div>
                     <div class="card-content">
-                        <h3>Backup Seguro em Nuvem</h3>
-                        <p>Salve suas fotos, vídeos e contatos com total segurança contra perdas.</p>
-                        <div class="card-price">R$ 50,00</div>
+                        <h3>Troca de Bateria</h3>
+                        <p>Recupere a autonomia original do seu telemóvel com baterias novas e devidamente testadas.</p>
+                        <span class="card-price">Sob Consulta</span>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="./image/pq-virus-do-celular.webp" alt="Remoção de vírus em smartphone" />
+                        <img src="./image/conector-carga.jpg" alt="Reparacao de Conector">
                     </div>
                     <div class="card-content">
-                        <h3>Remoção de Vírus e Anúncios</h3>
-                        <p>Eliminação de pop-ups, travamentos e aplicativos suspeitos.</p>
-                        <div class="card-price">R$ 70,00</div>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="./image/whatsapp-3.webp" alt="Configuração de WhatsApp" />
-                    </div>
-                    <div class="card-content">
-                        <h3>Restauração de WhatsApp</h3>
-                        <p>Recuperação de conversas, mídias e configuração de segurança de 2 etapas.</p>
-                        <div class="card-price">R$ 50,00</div>
+                        <h3>Reparação de Conector de Carga</h3>
+                        <p>Resolução de problemas em equipamentos que não carregam ou apresentam mau contacto na porta USB/Type-C/Lightning.</p>
+                        <span class="card-price">A partir de R$ --</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- <section class="shop-section" id="loja">
+        <div class="container">
+            <div class="shop-grid">
+                <div class="shop-image">
+                    <img src="./image/foto-da-loja.jpg" alt="Nosso Laboratório Técnico - M3 Technology">
+                </div>
+                <div class="shop-content">
+                    <h2 class="section-title" style="text-align: left;">Infraestrutura e Laboratório Próprio</h2>
+                    <p>Trabalhamos com equipamentos de ponta para diagnosticar e reparar o seu dispositivo com segurança total. A nossa bancada foi projetada para garantir diagnósticos precisos e proteção aos seus componentes elétricos.</p>
+                    <ul class="shop-list">
+                        <li>🔹 Proteção Antiestática (ESD) nas bancadas</li>
+                        <li>🔹 Diagnósticos avançados por software e hardware</li>
+                        <li>🔹 Segurança e sigilo absoluto dos seus dados</li>
+                        <li>🔹 Monitorização e ambiente climatizado</li>
+                    </ul>
+                    <p>Faça-nos uma visita e conheça o nosso espaço de trabalho!</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <section class="packages-section" id="pacotes">
         <div class="container">
             <h2 class="section-title">Pacotes Promocionais</h2>
-            <p class="section-subtitle">Combine serviços e economize mais</p>
+            <p class="section-subtitle">Junte serviços essenciais e poupe na manutenção preventiva.</p>
 
             <div class="packages-grid">
                 <div class="package-card">
                     <div class="package-header">
-                        <h3>Manutenção Básica</h3>
+                        <h3>Pacote Básico</h3>
+                        <div class="package-price">R$ --</div>
                     </div>
-                    <div class="package-price">R$ 150,00</div>
                     <ul class="package-features">
-                        <li>✓ Limpeza interna preventiva</li>
-                        <li>✓ Troca de pasta térmica</li>
-                        <li>✓ Atualização de drivers</li>
+                        <li>✔ Formatação e Sistema Operativo</li>
+                        <li>✔ Instalação de Programas Básicos</li>
+                        <li>✔ Limpeza de Vírus e Malware</li>
+                        <li>✖ Limpeza Física Interna</li>
                     </ul>
-                    <a href="https://wa.me/5599984365064?text=Olá!%20Quero%20o%20Pacote%20Básico."
-                        class="btn btn-outline" target="_blank" rel="noopener noreferrer">Solicitar</a>
+                    <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-outline">Escolher Pacote</a>
                 </div>
 
                 <div class="package-card package-featured">
-                    <div class="package-badge">Mais Recomendado</div>
+                    <span class="package-badge">Mais Popular</span>
                     <div class="package-header">
-                        <h3>Restaurar PC Completo</h3>
+                        <h3>Pacote Full Performance</h3>
+                        <div class="package-price">R$ --</div>
                     </div>
-                    <div class="package-price">R$ 280,00</div>
                     <ul class="package-features">
-                        <li>✓ Limpeza interna profunda</li>
-                        <li>✓ Pasta térmica de alta condutividade</li>
-                        <li>✓ Formatação e Reinstalação de SO</li>
-                        <li>✓ Pacote Office e Softwares essenciais</li>
-                        <li>✓ Otimização de inicialização</li>
+                        <li>✔ Formatação e Cópia de Segurança Completa</li>
+                        <li>✔ Limpeza Física Interna Geral</li>
+                        <li>✔ Troca de Pasta Térmica Premium</li>
+                        <li>✔ Otimização de Arranque e Performance</li>
                     </ul>
-                    <a href="https://wa.me/5599984365064?text=Olá!%20Quero%20o%20Pacote%20Completo."
-                        class="btn btn-primary" target="_blank" rel="noopener noreferrer">Solicitar</a>
-                </div>
-
-                <div class="package-card">
-                    <div class="package-header">
-                        <h3>Combo Celular Ok</h3>
-                    </div>
-                    <div class="package-price">R$ 120,00</div>
-                    <ul class="package-features">
-                        <li>✓ Backup de fotos e contatos</li>
-                        <li>✓ Limpeza de vírus e cache</li>
-                        <li>✓ Otimização de memória RAM</li>
-                        <li>✓ Ajustes de segurança</li>
-                    </ul>
-                    <a href="https://wa.me/5599984365064?text=Olá!%20Quero%20o%20Combo%20Celular."
-                        class="btn btn-outline" target="_blank" rel="noopener noreferrer">Solicitar</a>
+                    <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-primary">Escolher Pacote</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="trust-section" id="confianca">
+    <section class="trust-section">
         <div class="container">
-            <h2 class="section-title">Por que nos escolher?</h2>
+            <h2 class="section-title">Porquê Escolher a M³ Technology?</h2>
+            <p class="section-subtitle">Compromisso com transparência e excelência técnica.</p>
 
             <div class="trust-grid">
                 <div class="trust-card">
                     <div class="trust-icon">⚡</div>
-                    <h3>Atendimento Rápido</h3>
-                    <p>Agilidade no diagnóstico para você não ficar sem seu equipamento.</p>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-icon">💰</div>
-                    <h3>Preço Justo</h3>
-                    <p>Orçamentos claros e sem cobranças surpresa.</p>
+                    <h3>Agilidade</h3>
+                    <p>Diagnósticos rápidos e prazos cumpridos à risca para não interromper a sua rotina.</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">🛡️</div>
-                    <h3>Garantia nos Serviços</h3>
-                    <p>Trabalho técnico com suporte e garantia de satisfação.</p>
+                    <h3>Garantia Total</h3>
+                    <p>Todos os nossos serviços e componentes contam com garantia formal pós-reparação.</p>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon">🔒</div>
-                    <h3>Privacidade Total</h3>
-                    <p>Seus dados e arquivos pessoais tratados com máxima segurança.</p>
+                    <div class="trust-icon">🔍</div>
+                    <h3>Transparência</h3>
+                    <p>Aprovação prévia do orçamento sem custos ocultos ou taxas adicionais inesperadas.</p>
                 </div>
             </div>
         </div>
@@ -278,19 +216,21 @@
 
     <section class="faq-section" id="faq">
         <div class="container">
-            <h2 class="section-title">Dúvidas Frequentes</h2>
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p class="section-subtitle">Esclareça as suas dúvidas mais comuns.</p>
+
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h4>Quanto tempo demora a manutenção?</h4>
-                    <p>Serviços simples como formatação ou limpeza são entregues em até 24h. Serviços com troca de peças dependem da disponibilidade de componentes.</p>
+                    <h4>Quanto tempo demoram para dar um orçamento?</h4>
+                    <p>A maioria dos diagnósticos preliminares é concluída no prazo de 24 horas úteis.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Vocês atendem a domicílio?</h4>
-                    <p>Atendemos com hora marcada para diagnóstico local ou retirada/entrega do equipamento.</p>
+                    <h4>Os meus ficheiros estão seguros durante a reparação?</h4>
+                    <p>Sim! Seguimos normas estritas de privacidade e sigilo para proteger todos os seus dados pessoais.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Quais são as formas de pagamento?</h4>
-                    <p>Aceitamos Pix, cartões de débito e crédito (com opção de parcelamento).</p>
+                    <h4>Trabalham com peças originais?</h4>
+                    <p>Utilizamos apenas componentes originais ou de qualidade homologada equivalente com garantia de fábrica.</p>
                 </div>
             </div>
         </div>
@@ -298,59 +238,79 @@
 
     <section class="contact-section" id="contato">
         <div class="container">
-            <h2 class="section-title">Precisa de Ajuda?</h2>
-            <p class="section-subtitle">Fale diretamente no WhatsApp para tirar dúvidas ou agendar um atendimento</p>
+            <h2 class="section-title">Fale Connosco</h2>
+            <p class="section-subtitle">Estamos prontos para atender o seu pedido.</p>
 
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon">📱</div>
-                    <h3>WhatsApp</h3>
-                    <p><a href="https://wa.me/5599984365064" target="_blank" rel="noopener noreferrer">(55) 999843-65064</a></p>
+                    <h3>WhatsApp / Telefone</h3>
+                    <p><a href="https://wa.me/5500000000000" target="_blank">(00) 00000-0000</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Endereço</h3>
+                    <p>Rua Exemplo, 123 - Centro</p>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">✉️</div>
                     <h3>E-mail</h3>
-                    <p><a href="mailto:m3technology@gmail.com">m3tech.suporte@gmail.com</a></p>
+                    <p>contato@m3technology.com.br</p>
                 </div>
             </div>
 
-            <a href="https://wa.me/5599984365064?text=Olá!%20Quero%20um%20orçamento."
-                class="btn btn-primary btn-large btn-contact" target="_blank" rel="noopener noreferrer">
-                Falar com o Técnico Agora
-            </a>
+            <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-primary btn-large btn-contact">Iniciar Atendimento via WhatsApp</a>
         </div>
     </section>
-
-    <a href="https://wa.me/5599984365064?text=Olá!%20Vim%20pelo%20site."
-        class="whatsapp-float" id="whatsappFloat" title="Enviar mensagem no WhatsApp" target="_blank"
-        rel="noopener noreferrer">
-        <span class="whatsapp-icon">💬</span>
-    </a>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>M³ Technology</h4>
-                    <p>Manutenção e suporte profissional de informática.</p>
+                    <p>Soluções completas em Software, Infraestrutura de TI e Inovação para clientes residenciais e empresariais.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Navegação</h4>
+                    <h4>Links Rápidos</h4>
                     <ul>
                         <li><a href="#servicos-computadores">Computadores</a></li>
-                        <li><a href="#servicos-celulares">Celulares</a></li>
+                        <li><a href="#servicos-celulares">Telemóveis</a></li>
+                        <li><a href="#loja">Nosso Espaço</a></li>
                         <li><a href="#pacotes">Pacotes</a></li>
-                        <li><a href="#faq">FAQ</a></li>
                     </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Horário de Funcionamento</h4>
+                    <p>Segunda a Sexta: 08:00h - 18:00h</p>
+                    <p>Sábado: 08:00h - 12:00h</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="year"></span> M³ Technology. Todos os direitos reservados.</p>
+                <p>&copy; 2026 M³ Technology. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <a href="https://wa.me/5500000000000" class="whatsapp-float" target="_blank" aria-label="Contacto via WhatsApp">
+        <span class="whatsapp-icon">💬</span>
+    </a>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
 </html>
