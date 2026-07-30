@@ -122,9 +122,8 @@ section {
     margin-left: auto;
     margin-right: auto;
 }
-
 /* ========================================
-   4. HEADER E NAVEGAÇÃO
+   4. HEADER E NAVEGAÇÃO (CORRIGIDO)
    ======================================== */
 
 .header {
@@ -150,18 +149,25 @@ section {
     align-items: center;
 }
 
+/* Trava a área da logo no tamanho do header */
 .logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     text-decoration: none;
+    max-height: 50px; 
+    overflow: hidden; /* Evita vazamento da imagem caso seja grande */
 }
 
+/* Regra estrita para travar qualquer imagem dentro da logo */
+.logo img,
 .logo-img {
-    height: 45px;
-    width: auto;
+    height: 45px !important; /* !important força a imagem a respeitar os 45px */
+    width: auto !important;  /* Mantém a proporção sem distorcer */
+    max-width: 200px;        /* Evita esticar na largura */
     object-fit: contain;
     border-radius: 6px;
+    display: block;
 }
 
 .logo-text-wrapper {
