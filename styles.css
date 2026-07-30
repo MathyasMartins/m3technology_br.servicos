@@ -1,39 +1,14 @@
 /*
 ========================================
-SITE DE SERVIÇOS DE INFORMÁTICA - CSS
+SITE M³ TECHNOLOGY - CSS (DARK THEME)
 ========================================
-
-Organização do arquivo:
-1. Configurações globais (reset, variáveis, tipografia)
-2. Tipografia e fontes
-3. Layout e estrutura
-4. Header e navegação
-5. Hero section
-6. Cards de serviços
-7. Pacotes e promoções
-8. Seção de confiança
-9. Galeria
-10. Contato
-11. Footer
-12. Botão flutuante WhatsApp
-13. Animações
-14. Responsividade (media queries)
-
-Paleta de cores:
-- Azul primário: #2563EB
-- Azul escuro: #1E40AF
-- Fundo principal: #FFFFFF
-- Fundo alternativo: #F8FAFC
-- Texto principal: #1F2937
-- Texto secundário: #475569
-- Verde WhatsApp: #25D366
-- Destaque: #F59E0B
-
-Tipografia:
-- Títulos: Poppins (600, 700, 800)
-- Textos: Inter (400, 500, 600, 700)
-
-======================================== 
+Paleta extraída da Logo:
+- Ciano Primário (Destaques): #00d2eb
+- Ciano Secundário (Hover/Gradients): #00a3cc
+- Fundo Principal (Dark): #070e17
+- Fundo Alternativo/Cards: #0d1b2a
+- Texto Claro: #F8FAFC
+- Texto Secundário: #94A3B8
 */
 
 /* ========================================
@@ -48,32 +23,30 @@ Tipografia:
 
 html {
     scroll-behavior: smooth;
-    /* Scroll suave para navegação por âncoras */
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    color: #1F2937;
-    background-color: #FFFFFF;
+    color: #F8FAFC;
+    background-color: var(--bg-main);
     line-height: 1.6;
     font-size: 16px;
 }
 
-/* Variáveis CSS para fácil manutenção */
 :root {
-    --primary-blue: #141e53;
-    --dark-blue: #1E40AF;
-    --darker-blue: #0F172A;
-    --bg-main: #FFFFFF;
-    --bg-alt: #F8FAFC;
-    --text-main: #1F2937;
-    --text-secondary: #475569;
+    --primary-cyan: #00d2eb;
+    --dark-cyan: #00a3cc;
+    --bg-main: #070e17;
+    --bg-alt: #0d1b2a;
+    --card-bg: #112236;
+    --text-main: #F8FAFC;
+    --text-secondary: #94A3B8;
     --whatsapp-green: #25D366;
     --accent-orange: #F59E0B;
-    --border-color: #E5E7EB;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --border-color: rgba(0, 210, 235, 0.2);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 15px rgba(0, 210, 235, 0.3);
     --radius: 8px;
     --radius-lg: 12px;
 }
@@ -87,6 +60,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0.5rem;
+    color: var(--text-main);
 }
 
 h1 {
@@ -110,13 +84,13 @@ p {
 }
 
 a {
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    color: var(--dark-blue);
+    color: var(--dark-cyan);
 }
 
 /* ========================================
@@ -135,8 +109,8 @@ section {
 
 .section-title {
     text-align: center;
-    color: var(--darker-blue);
-    margin-bottom: 1rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
@@ -158,7 +132,9 @@ section {
     top: 0;
     left: 0;
     right: 0;
-    background-color: var(--darker-blue);
+    background-color: rgba(7, 14, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
     color: white;
     padding: 1rem 0;
     z-index: 1000;
@@ -189,12 +165,12 @@ section {
 
 .logo-subtitle {
     font-size: 0.75rem;
-    color: #9CA3AF;
+    color: var(--primary-cyan);
     margin: 0;
     font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
 }
 
-/* Menu de navegação */
 .nav-menu {
     display: flex;
     gap: 2rem;
@@ -202,17 +178,16 @@ section {
 }
 
 .nav-link {
-    color: white;
+    color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s ease;
     font-size: 0.95rem;
 }
 
 .nav-link:hover {
-    color: var(--whatsapp-green);
+    color: var(--primary-cyan);
 }
 
-/* Menu hambúrguer (oculto no desktop) */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -225,7 +200,7 @@ section {
 .menu-toggle span {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--primary-cyan);
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -247,13 +222,14 @@ section {
    ======================================== */
 
 .hero {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    background: radial-gradient(circle at center, #0d223a 0%, var(--bg-main) 70%);
     color: white;
     padding: 8rem 0 6rem;
     margin-top: 70px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .hero::before {
@@ -263,8 +239,9 @@ section {
     right: -10%;
     width: 500px;
     height: 500px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 210, 235, 0.05);
     border-radius: 50%;
+    filter: blur(80px);
     z-index: 0;
 }
 
@@ -273,6 +250,7 @@ section {
     z-index: 1;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .hero-title {
@@ -284,7 +262,7 @@ section {
 .hero-subtitle {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-secondary);
     animation: slideInUp 0.8s ease 0.2s both;
 }
 
@@ -293,7 +271,9 @@ section {
    ======================================== */
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius);
     font-weight: 600;
@@ -304,33 +284,31 @@ section {
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     min-height: 44px;
-    /* Área mínima de toque para mobile */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .btn-primary {
-    background-color: var(--primary-blue);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--dark-cyan) 100%);
+    color: #070e17;
+    font-weight: 700;
 }
 
 .btn-primary:hover {
-    background-color: var(--dark-blue);
+    box-shadow: var(--shadow-glow);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    filter: brightness(1.1);
 }
 
 .btn-outline {
     background-color: transparent;
-    color: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
+    color: var(--primary-cyan);
+    border: 2px solid var(--primary-cyan);
 }
 
 .btn-outline:hover {
-    background-color: var(--primary-blue);
-    color: white;
+    background-color: var(--primary-cyan);
+    color: #070e17;
     transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
 }
 
 .btn-large {
@@ -339,7 +317,9 @@ section {
 }
 
 .btn-contact {
-    margin-top: 2rem;
+    margin: 2rem auto 0;
+    display: flex;
+    max-width: 320px;
 }
 
 /* ========================================
@@ -362,7 +342,8 @@ section {
 }
 
 .service-card {
-    background-color: white;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
@@ -373,7 +354,8 @@ section {
 
 .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-cyan);
+    box-shadow: var(--shadow-glow);
 }
 
 .card-image {
@@ -388,10 +370,12 @@ section {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    opacity: 0.9;
 }
 
 .service-card:hover .card-image img {
     transform: scale(1.05);
+    opacity: 1;
 }
 
 .card-content {
@@ -402,7 +386,7 @@ section {
 }
 
 .card-content h3 {
-    color: var(--darker-blue);
+    color: var(--text-main);
     margin-bottom: 0.5rem;
 }
 
@@ -415,7 +399,7 @@ section {
 .card-price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
     margin-top: 1rem;
 }
 
@@ -442,12 +426,12 @@ section {
 }
 
 .package-card {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: var(--radius-lg);
     padding: 2rem;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 1px solid var(--border-color);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -455,12 +439,14 @@ section {
 
 .package-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-cyan);
+    box-shadow: var(--shadow-glow);
 }
 
 .package-featured {
-    border-color: var(--primary-blue);
+    border: 2px solid var(--primary-cyan);
     transform: scale(1.05);
+    background-color: #0d223a;
 }
 
 .package-featured:hover {
@@ -471,23 +457,23 @@ section {
     position: absolute;
     top: -12px;
     left: 20px;
-    background-color: var(--accent-orange);
-    color: white;
-    padding: 0.5rem 1rem;
+    background-color: var(--primary-cyan);
+    color: #070e17;
+    padding: 0.4rem 1rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 700;
 }
 
 .package-header h3 {
-    color: var(--darker-blue);
+    color: var(--text-main);
     margin-bottom: 1rem;
 }
 
 .package-price {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
     margin-bottom: 1.5rem;
 }
 
@@ -503,105 +489,34 @@ section {
     font-weight: 500;
 }
 
-/* Promoções */
-.promos-section {
-    background-color: var(--bg-main);
-}
-
-.promos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.promo-card {
-    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-    color: white;
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.promo-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-}
-
-.promo-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
-}
-
-.promo-badge {
-    display: inline-block;
-    background-color: var(--accent-orange);
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.promo-card h3 {
-    color: white;
-    margin-bottom: 0.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.promo-description {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.promo-price {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
 /* ========================================
    9. SEÇÃO DE CONFIANÇA
    ======================================== */
 
 .trust-section {
-    background-color: var(--bg-alt);
+    background-color: var(--bg-main);
 }
 
 .trust-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 2rem;
 }
 
 .trust-card {
-    background-color: white;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 2rem;
     text-align: center;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
 }
 
 .trust-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-cyan);
+    box-shadow: var(--shadow-glow);
 }
 
 .trust-icon {
@@ -611,7 +526,7 @@ section {
 }
 
 .trust-card h3 {
-    color: var(--darker-blue);
+    color: var(--text-main);
     margin-bottom: 0.5rem;
 }
 
@@ -621,41 +536,40 @@ section {
 }
 
 /* ========================================
-   10. GALERIA
+   10. SEÇÃO DE FAQ (DÚVIDAS FREQUENTES)
    ======================================== */
 
-.gallery-section {
-    background-color: var(--bg-main);
+.faq-section {
+    background-color: var(--bg-alt);
 }
 
-.gallery-grid {
+.faq-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.gallery-item {
+.faq-item {
+    background-color: var(--card-bg);
     border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    height: 250px;
-    transition: all 0.3s ease;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary-cyan);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.gallery-item:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
+.faq-item h4 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
+.faq-item p {
+    margin: 0;
+    color: var(--text-secondary);
 }
 
 /* ========================================
@@ -663,28 +577,30 @@ section {
    ======================================== */
 
 .contact-section {
-    background-color: var(--bg-alt);
+    background-color: var(--bg-main);
 }
 
 .contact-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .contact-item {
-    background-color: white;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 2rem;
     text-align: center;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
 }
 
 .contact-item:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-cyan);
+    box-shadow: var(--shadow-glow);
 }
 
 .contact-icon {
@@ -694,7 +610,7 @@ section {
 }
 
 .contact-item h3 {
-    color: var(--darker-blue);
+    color: var(--text-main);
     margin-bottom: 0.5rem;
 }
 
@@ -703,7 +619,7 @@ section {
 }
 
 .contact-item a {
-    color: var(--primary-blue);
+    color: var(--primary-cyan);
     font-weight: 600;
 }
 
@@ -712,7 +628,8 @@ section {
    ======================================== */
 
 .footer {
-    background-color: var(--darker-blue);
+    background-color: #03070d;
+    border-top: 1px solid var(--border-color);
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -730,7 +647,7 @@ section {
 }
 
 .footer-section p {
-    color: #D1D5DB;
+    color: var(--text-secondary);
     margin-bottom: 0.5rem;
 }
 
@@ -743,19 +660,19 @@ section {
 }
 
 .footer-section a {
-    color: #D1D5DB;
+    color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    color: var(--whatsapp-green);
+    color: var(--primary-cyan);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 1.5rem;
     text-align: center;
-    color: #9CA3AF;
+    color: var(--text-secondary);
 }
 
 /* ========================================
@@ -828,7 +745,6 @@ section {
    15. RESPONSIVIDADE
    ======================================== */
 
-/* Tablet (até 768px) */
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -854,18 +770,17 @@ section {
         font-size: 1.2rem;
     }
 
-    /* Menu hambúrguer visível */
     .menu-toggle {
         display: flex;
     }
 
-    /* Menu mobile */
     .nav-menu {
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--darker-blue);
+        background-color: rgba(7, 14, 23, 0.98);
+        border-bottom: 1px solid var(--border-color);
         flex-direction: column;
         gap: 0;
         max-height: 0;
@@ -874,12 +789,14 @@ section {
     }
 
     .nav-menu.active {
-        max-height: 300px;
+        max-height: 350px;
     }
 
     .nav-link {
         padding: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .hero {
@@ -901,9 +818,8 @@ section {
 
     .services-grid,
     .packages-grid,
-    .promos-grid,
     .trust-grid,
-    .gallery-grid,
+    .faq-grid,
     .contact-info {
         grid-template-columns: 1fr;
     }
@@ -928,7 +844,6 @@ section {
     }
 }
 
-/* Mobile (até 480px) */
 @media (max-width: 480px) {
     h1 {
         font-size: 1.5rem;
@@ -987,16 +902,8 @@ section {
         font-size: 1.5rem;
     }
 
-    .promo-price {
-        font-size: 1.5rem;
-    }
-
     .trust-icon {
         font-size: 2.5rem;
-    }
-
-    .gallery-item {
-        height: 180px;
     }
 
     .contact-icon {
@@ -1029,34 +936,3 @@ section {
         grid-template-columns: 1fr;
     }
 }
-
-/*
-========================================
-NOTAS PARA MANUTENÇÃO FUTURA
-========================================
-
-1. ALTERAR CORES:
-   - Editar as variáveis CSS em :root
-   - Exemplo: --primary-blue: #NOVACOR;
-
-2. ALTERAR FONTES:
-   - Editar o import do Google Fonts em index.html
-   - Atualizar font-family nos seletores
-
-3. ADICIONAR NOVAS SEÇÕES:
-   - Seguir o padrão de padding: padding: 4rem 0;
-   - Usar .container para centralizar
-   - Aplicar box-shadow e border-radius consistentes
-
-4. RESPONSIVIDADE:
-   - Testar em: 480px, 768px, 1024px, 1920px
-   - Fonte mínima: 14px no mobile
-   - Botões: mínimo 44px de altura
-
-5. PERFORMANCE:
-   - Otimizar imagens (usar WebP se possível)
-   - Minificar CSS em produção
-   - Usar lazy loading para galeria
-
-======================================== 
-*/
