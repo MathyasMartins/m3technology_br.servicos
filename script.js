@@ -1,350 +1,653 @@
 /*
 ========================================
-SITE DE SERVIÇOS DE INFORMÁTICA - JAVASCRIPT
+M³ TECHNOLOGY - JAVASCRIPT
 ========================================
 
 Funcionalidades:
-1. Menu hambúrguer responsivo (mobile)
-2. Scroll suave para navegação por âncoras
-3. Botão flutuante WhatsApp com animação
-4. Integração com wa.me (WhatsApp Web)
-5. Atualização automática do ano no footer
-
-Integração WhatsApp:
-- Padrão: https://wa.me/55NUMERO?text=MENSAGEM_URL_ENCODED
-- Número: Alterar "55SEUNUMERO" por seu número com código do país
-- Mensagem: Pré-preenchida com contexto do serviço
-
-URL Encoding:
-- Espaços: %20
-- Quebra de linha: %0A
-- Caracteres especiais: use encodeURIComponent()
-
-Exemplo de uso:
-const numero = "5511999999999";
-const mensagem = "Olá! Gostaria de um orçamento.";
-const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-
+1. Menu hambúrguer responsivo
+2. Fechamento do menu ao clicar fora
+3. Fechamento do menu ao selecionar uma opção
+4. Scroll suave
+5. Integração com WhatsApp
+6. Clique nos cards de serviços
+7. Mensagem personalizada para cada serviço
+8. Botão flutuante do WhatsApp
+9. Atualização automática do ano
+10. Validação e formatação de telefone
 ========================================
 */
 
-// ========================================
-// 1. MENU HAMBÚRGUER RESPONSIVO
-// ========================================
-
-/**
- * Inicializa o menu hambúrguer para mobile
- * Alterna entre estado aberto e fechado
- * Fecha ao clicar em um link de navegação
- */
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Abre/fecha o menu ao clicar no ícone hambúrguer
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Fecha o menu ao clicar em um link de navegação
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // Fecha o menu ao clicar fora dele
-    document.addEventListener('click', function(event) {
-        const isClickInsideMenu = navMenu.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickOnToggle) {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
-});
 
 // ========================================
-// 2. SCROLL SUAVE (já configurado no CSS)
+// 1. CONFIGURAÇÕES
 // ========================================
 
-/**
- * O scroll suave é configurado em CSS com:
- * html { scroll-behavior: smooth; }
- * 
- * Isso permite que os links de âncora (href="#secao")
- * façam scroll suave até a seção correspondente
- */
-
-// ========================================
-// 3. BOTÃO FLUTUANTE WHATSAPP
-// ========================================
-
-/**
- * Animação e comportamento do botão flutuante
- * O botão pulsa continuamente e fica mais visível ao hover
- * Estilos em CSS: .whatsapp-float e @keyframes pulse
- */
-const whatsappFloat = document.getElementById('whatsappFloat');
-
-if (whatsappFloat) {
-    // Adiciona efeito visual ao passar o mouse
-    whatsappFloat.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.1)';
-    });
-
-    whatsappFloat.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
-}
-
-// ========================================
-// 4. INTEGRAÇÃO COM WHATSAPP (wa.me)
-// ========================================
-
-/**
- * INSTRUÇÕES PARA ALTERAR O NÚMERO DO WHATSAPP:
- * 
- * 1. Encontre todas as URLs com "55SEUNUMERO"
- * 2. Substitua por seu número completo com código do país
- * 
+/*
+ * Coloque aqui o número oficial do WhatsApp.
+ *
+ * Formato:
+ * 55 + DDD + número
+ *
  * Exemplo:
- * - Antes: https://wa.me/55SEUNUMERO
- * - Depois: https://wa.me/5511987654321
- * 
- * Formato correto:
- * - Código do país: 55 (Brasil)
- * - DDD: 11 (São Paulo)
- * - Número: 987654321
- * - Completo: 5511987654321
- * 
- * URLs com wa.me no projeto:
- * - Hero section (botão principal)
- * - Cada card de serviço
- * - Cada pacote
- * - Botão flutuante
- * - Seção de contato
- * - Footer
+ * 5511999999999
  */
 
+const NUMERO_WHATSAPP = "5599984365064";
+
+// ========================================
+// 2. FUNÇÃO - GERAR URL DO WHATSAPP
+// ========================================
+
 /**
- * Função auxiliar para gerar URL do WhatsApp
- * Uso: gerarUrlWhatsApp('5511987654321', 'Olá! Gostaria de um orçamento.')
+ * Gera uma URL do WhatsApp com mensagem personalizada.
+ *
+ * @param {string} mensagem - Mensagem que será preenchida no WhatsApp.
+ * @returns {string} URL completa do WhatsApp.
  */
-function gerarUrlWhatsApp(numero, mensagem) {
-    // URL Encoding: converte a mensagem para formato seguro de URL
+function gerarUrlWhatsApp(mensagem) {
+
     const mensagemCodificada = encodeURIComponent(mensagem);
-    return `https://wa.me/${numero}?text=${mensagemCodificada}`;
+
+    return `https://wa.me/${NUMERO_WHATSAPP}?text=${mensagemCodificada}`;
 }
 
-/**
- * Exemplo de uso em JavaScript:
- * 
- * const numero = "5511987654321";
- * const mensagem = "Olá! Vim pelo site e gostaria de um orçamento.";
- * const url = gerarUrlWhatsApp(numero, mensagem);
- * 
- * // Abrir em nova aba
- * window.open(url, '_blank');
- * 
- * // Ou redirecionar
- * window.location.href = url;
- */
 
 // ========================================
-// 5. ATUALIZAÇÃO AUTOMÁTICA DO ANO NO FOOTER
+// 3. FUNÇÃO - ABRIR WHATSAPP
 // ========================================
 
 /**
- * Atualiza o ano no footer automaticamente
- * Encontra o elemento com id="year" e insere o ano atual
+ * Abre o WhatsApp em uma nova aba.
+ *
+ * @param {string} mensagem - Mensagem personalizada.
  */
-document.addEventListener('DOMContentLoaded', function() {
-    const yearElement = document.getElementById('year');
-    if (yearElement) {
-        const currentYear = new Date().getFullYear();
-        yearElement.textContent = currentYear;
+function abrirWhatsApp(mensagem) {
+
+    if (!validarNumeroWhatsApp(NUMERO_WHATSAPP)) {
+        console.error(
+            "Número de WhatsApp inválido. Verifique a constante NUMERO_WHATSAPP."
+        );
+
+        return;
     }
+
+    const url = gerarUrlWhatsApp(mensagem);
+
+    window.open(url, "_blank", "noopener,noreferrer");
+}
+
+
+// ========================================
+// 4. MENU HAMBÚRGUER
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    /*
+     * Se os elementos não existirem, não executa
+     * o restante do código do menu.
+     */
+    if (!menuToggle || !navMenu) {
+        return;
+    }
+
+    const navLinks = navMenu.querySelectorAll(".nav-link");
+
+
+    // ----------------------------------------
+    // Abrir / fechar menu
+    // ----------------------------------------
+
+    menuToggle.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        menuToggle.classList.toggle("active");
+        navMenu.classList.toggle("active");
+
+    });
+
+
+    // ----------------------------------------
+    // Fechar menu ao clicar em um link
+    // ----------------------------------------
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            menuToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+
+        });
+
+    });
+
+
+    // ----------------------------------------
+    // Fechar menu ao clicar fora
+    // ----------------------------------------
+
+    document.addEventListener("click", function (event) {
+
+        const clicouNoMenu = navMenu.contains(event.target);
+        const clicouNoBotao = menuToggle.contains(event.target);
+
+        if (!clicouNoMenu && !clicouNoBotao) {
+
+            menuToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+
+        }
+
+    });
+
 });
 
+
 // ========================================
-// 6. VALIDAÇÕES E UTILITÁRIOS
+// 5. CARDS DE SERVIÇOS → WHATSAPP
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const serviceCards = document.querySelectorAll(".service-card");
+
+    if (!serviceCards.length) {
+        return;
+    }
+
+
+    serviceCards.forEach(function (card) {
+
+        /*
+         * Torna o card visualmente interativo.
+         */
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+
+
+        // ----------------------------------------
+        // Clique com o mouse
+        // ----------------------------------------
+
+        card.addEventListener("click", function (event) {
+
+            /*
+             * Se o usuário clicar em algum link ou botão
+             * dentro do card, não dispara o WhatsApp
+             * novamente.
+             */
+            if (
+                event.target.closest("a") ||
+                event.target.closest("button")
+            ) {
+                return;
+            }
+
+            enviarServicoParaWhatsApp(card);
+
+        });
+
+
+        // ----------------------------------------
+        // Teclado
+        // ----------------------------------------
+
+        card.addEventListener("keydown", function (event) {
+
+            /*
+             * Permite acessar o card usando:
+             * Enter
+             * Espaço
+             */
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+                event.preventDefault();
+
+                enviarServicoParaWhatsApp(card);
+
+            }
+
+        });
+
+    });
+
+});
+
+
+// ========================================
+// 6. ENVIAR SERVIÇO PARA WHATSAPP
 // ========================================
 
 /**
- * Função para validar número de WhatsApp
- * Retorna true se o número é válido
+ * Extrai o nome do serviço do card
+ * e abre o WhatsApp com uma mensagem personalizada.
+ *
+ * @param {HTMLElement} card - Card do serviço.
+ */
+function enviarServicoParaWhatsApp(card) {
+
+    const tituloElemento = card.querySelector("h3");
+
+    if (!tituloElemento) {
+        console.warn(
+            "Não foi encontrado um título <h3> no card do serviço."
+        );
+
+        return;
+    }
+
+    const nomeServico = tituloElemento.textContent.trim();
+
+    const mensagens = {
+
+        "Formatação e Instalação do Sistema": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+💻 Serviço: Formatação e Instalação do Sistema
+
+Gostaria de saber o valor do serviço, o prazo para realização e como funciona o procedimento.
+
+Aguardo retorno. Obrigado!`,
+
+        "Limpeza Preventiva": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🧹 Serviço: Limpeza Preventiva
+
+Gostaria de realizar uma limpeza interna no meu equipamento e saber mais informações sobre o procedimento, valor e prazo.
+
+Aguardo retorno. Obrigado!`,
+
+        "Limpeza e Troca de Pasta Térmica": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🌡️ Serviço: Limpeza + Troca de Pasta Térmica
+
+Gostaria de saber o valor do serviço, o prazo para realização e como funciona o procedimento.
+
+Aguardo retorno. Obrigado!`,
+
+        "Upgrade de SSD": `Olá! 👋
+
+Vim pelo site da M³ Technology e tenho interesse em realizar um upgrade no meu equipamento.
+
+💾 Serviço: Upgrade de SSD
+
+Gostaria de verificar quais opções de SSD são compatíveis com meu equipamento, além de saber o valor da mão de obra, disponibilidade e prazo para instalação.
+
+Aguardo retorno. Obrigado!`,
+
+        "Upgrade de Memória RAM": `Olá! 👋
+
+Vim pelo site da M³ Technology e tenho interesse em realizar um upgrade no meu equipamento.
+
+🧠 Serviço: Upgrade de Memória RAM
+
+Gostaria de saber qual memória RAM é compatível com meu equipamento, além dos valores e prazo para instalação.
+
+Aguardo retorno. Obrigado!`,
+
+        "Backup e Transferência de Dados": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar informações sobre um serviço.
+
+💾 Serviço: Backup e Transferência de Dados
+
+Preciso realizar um backup ou transferência dos meus arquivos e gostaria de saber como funciona o procedimento, o prazo e o valor do serviço.
+
+Aguardo retorno. Obrigado!`,
+
+        "Recuperação de Carcaça": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar uma avaliação.
+
+🔧 Serviço: Recuperação de Carcaça
+
+Meu equipamento possui danos estruturais e gostaria de saber se é possível realizar o reparo.
+
+📸 Posso enviar fotos do equipamento para avaliação.
+
+Gostaria também de saber o valor aproximado e o prazo para realização do serviço.
+
+Aguardo retorno. Obrigado!`,
+
+        "Manutenção Preventiva": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🛠️ Serviço: Manutenção Preventiva
+
+Gostaria de realizar uma avaliação e manutenção preventiva no meu equipamento para verificar possíveis problemas e evitar desgastes.
+
+Gostaria de saber o valor e o prazo para realização do serviço.
+
+Aguardo retorno. Obrigado!`,
+
+        "Troca de Tela ou Display": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+📱 Serviço: Troca de Tela / Display
+
+📲 Modelo do aparelho:
+
+Gostaria de saber o valor da troca da tela/display, disponibilidade da peça e prazo para realização do serviço.
+
+Aguardo retorno. Obrigado!`,
+
+        "Troca de Bateria": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🔋 Serviço: Troca de Bateria
+
+📲 Modelo do aparelho:
+
+Gostaria de saber o valor da bateria, disponibilidade da peça e prazo para realização do serviço.
+
+Aguardo retorno. Obrigado!`,
+
+        "Troca de Conector de Carga": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🔌 Serviço: Troca de Conector de Carga
+
+📲 Modelo do aparelho:
+
+Gostaria de saber o valor do reparo, disponibilidade da peça e prazo para realização do serviço.
+
+Aguardo retorno. Obrigado!`
+    };
+
+    /*
+     * Caso algum serviço novo seja adicionado ao site
+     * e ainda não tenha uma mensagem personalizada,
+     * utiliza uma mensagem padrão.
+     */
+
+    const mensagem = mensagens[nomeServico] || `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🔧 Serviço: ${nomeServico}
+
+Gostaria de saber o valor, prazo para execução e disponibilidade.
+
+Aguardo retorno. Obrigado!`;
+
+    abrirWhatsApp(mensagem);
+}
+
+
+// ========================================
+// 7. BOTÕES QUE JÁ POSSUEM WHATSAPP
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /*
+     * Procura links que tenham a classe:
+     *
+     * .whatsapp-link
+     *
+     * Caso queira controlar algum botão diretamente
+     * pelo JavaScript, basta adicionar essa classe.
+     */
+
+    const whatsappLinks = document.querySelectorAll(".whatsapp-link");
+
+    whatsappLinks.forEach(function (link) {
+
+        link.addEventListener("click", function (event) {
+
+            /*
+             * Não interfere se o link já possuir
+             * um href específico.
+             */
+
+            if (link.dataset.mensagem) {
+
+                event.preventDefault();
+
+                abrirWhatsApp(link.dataset.mensagem);
+
+            }
+
+        });
+
+    });
+
+});
+
+
+// ========================================
+// 8. BOTÃO FLUTUANTE DO WHATSAPP
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const whatsappFloat = document.getElementById("whatsappFloat");
+
+    if (!whatsappFloat) {
+        return;
+    }
+
+
+    // ----------------------------------------
+    // Mensagem do botão flutuante
+    // ----------------------------------------
+
+    whatsappFloat.addEventListener("click", function (event) {
+
+        /*
+         * Evita o href original.
+         */
+
+        event.preventDefault();
+
+        const mensagem =
+            "Olá! Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.";
+
+        abrirWhatsApp(mensagem);
+
+    });
+
+
+    // ----------------------------------------
+    // Efeito hover
+    // ----------------------------------------
+
+    whatsappFloat.addEventListener("mouseenter", function () {
+
+        this.style.transform = "scale(1.1)";
+
+    });
+
+
+    whatsappFloat.addEventListener("mouseleave", function () {
+
+        this.style.transform = "";
+
+    });
+
+});
+
+
+// ========================================
+// 9. ATUALIZAÇÃO AUTOMÁTICA DO ANO
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const yearElement = document.getElementById("year");
+
+    if (!yearElement) {
+        return;
+    }
+
+    yearElement.textContent = new Date().getFullYear();
+
+});
+
+
+// ========================================
+// 10. VALIDAÇÃO DO WHATSAPP
+// ========================================
+
+/**
+ * Valida se o número possui quantidade
+ * mínima de dígitos.
+ *
+ * @param {string} numero
+ * @returns {boolean}
  */
 function validarNumeroWhatsApp(numero) {
-    // Remove caracteres não numéricos
-    const apenasNumeros = numero.replace(/\D/g, '');
-    
-    // Verifica se tem pelo menos 10 dígitos (DDD + número)
-    if (apenasNumeros.length < 10) {
-        console.warn('Número de WhatsApp inválido:', numero);
+
+    if (!numero) {
         return false;
     }
-    
+
+
+    const apenasNumeros = String(numero).replace(/\D/g, "");
+
+
+    /*
+     * Número brasileiro completo normalmente terá:
+     *
+     * 55 + DDD + número
+     *
+     * 12 ou 13 dígitos dependendo do formato.
+     */
+
+    if (apenasNumeros.length < 12) {
+
+        console.warn(
+            "Número de WhatsApp aparentemente inválido:",
+            numero
+        );
+
+        return false;
+    }
+
+
     return true;
+
 }
 
+
+// ========================================
+// 11. FORMATAR TELEFONE
+// ========================================
+
 /**
- * Função para formatar número de telefone
- * Entrada: "5511987654321"
- * Saída: "(11) 98765-4321"
+ * Formata números brasileiros.
+ *
+ * Exemplo:
+ * 11999999999
+ *
+ * Resultado:
+ * (11) 99999-9999
+ *
+ * @param {string} numero
+ * @returns {string}
  */
 function formatarTelefone(numero) {
-    const apenasNumeros = numero.replace(/\D/g, '');
-    
-    if (apenasNumeros.length === 11) {
-        // Formato: (XX) XXXXX-XXXX
-        return `(${apenasNumeros.substring(0, 2)}) ${apenasNumeros.substring(2, 7)}-${apenasNumeros.substring(7)}`;
-    } else if (apenasNumeros.length === 10) {
-        // Formato: (XX) XXXX-XXXX
-        return `(${apenasNumeros.substring(0, 2)}) ${apenasNumeros.substring(2, 6)}-${apenasNumeros.substring(6)}`;
+
+    if (!numero) {
+        return "";
     }
-    
-    return numero; // Retorna original se não conseguir formatar
+
+
+    const apenasNumeros = String(numero).replace(/\D/g, "");
+
+
+    // ----------------------------------------
+    // Número com DDD
+    // ----------------------------------------
+
+    if (apenasNumeros.length === 11) {
+
+        return `(${apenasNumeros.substring(0, 2)}) ${apenasNumeros.substring(2, 7)}-${apenasNumeros.substring(7)}`;
+
+    }
+
+
+    // ----------------------------------------
+    // Número fixo
+    // ----------------------------------------
+
+    if (apenasNumeros.length === 10) {
+
+        return `(${apenasNumeros.substring(0, 2)}) ${apenasNumeros.substring(2, 6)}-${apenasNumeros.substring(6)}`;
+
+    }
+
+
+    return numero;
+
 }
 
-// ========================================
-// 7. DOCUMENTAÇÃO - GITHUB PAGES
-// ========================================
-
-/**
- * COMO HOSPEDAR NO GITHUB PAGES:
- * 
- * 1. CRIAR REPOSITÓRIO:
- *    - Acesse github.com e crie um novo repositório público
- *    - Nome: seu-projeto (pode ser qualquer nome)
- *    - Descrição: "Site de Serviços de Informática"
- * 
- * 2. CLONAR REPOSITÓRIO:
- *    git clone https://github.com/seu-usuario/seu-projeto.git
- *    cd seu-projeto
- * 
- * 3. ADICIONAR ARQUIVOS:
- *    - Copie index.html, styles.css e script.js para a raiz
- *    - Crie pasta "images" e adicione as imagens
- *    - Estrutura:
- *      seu-projeto/
- *      ├── index.html
- *      ├── styles.css
- *      ├── script.js
- *      └── images/
- *          ├── servico-limpeza.jpg
- *          ├── galeria-1.jpg
- *          └── ...
- * 
- * 4. FAZER COMMIT:
- *    git add .
- *    git commit -m "Adiciona site de serviços de informática"
- *    git push origin main
- * 
- * 5. ATIVAR GITHUB PAGES:
- *    - Vá para Settings > Pages
- *    - Em "Source", selecione "Deploy from a branch"
- *    - Selecione "main" e "/ (root)"
- *    - Clique em "Save"
- * 
- * 6. ACESSAR SITE:
- *    - URL: https://seu-usuario.github.io/seu-projeto
- *    - Pode levar alguns minutos para ficar disponível
- * 
- * 7. ATUALIZAR SITE:
- *    - Edite os arquivos localmente
- *    - Faça commit e push:
- *      git add .
- *      git commit -m "Atualiza preços"
- *      git push origin main
- *    - Mudanças aparecem em poucos minutos
- * 
- * DICAS:
- * - Use um domínio customizado (Settings > Pages > Custom domain)
- * - Ative HTTPS (Settings > Pages > Enforce HTTPS)
- * - Crie um README.md com instruções
- * - Use .gitignore para excluir arquivos desnecessários
- */
 
 // ========================================
-// 8. DOCUMENTAÇÃO - NETLIFY
+// 12. FEEDBACK VISUAL DOS CARDS
 // ========================================
 
-/**
- * COMO HOSPEDAR NO NETLIFY:
- * 
- * 1. PREPARAR REPOSITÓRIO GIT:
- *    - Crie um repositório no GitHub com os arquivos
- *    - Siga as instruções do GitHub Pages acima
- * 
- * 2. CONECTAR NETLIFY:
- *    - Acesse netlify.com
- *    - Clique em "New site from Git"
- *    - Selecione GitHub e autorize
- *    - Escolha o repositório
- * 
- * 3. CONFIGURAR BUILD:
- *    - Build command: (deixe em branco - é site estático)
- *    - Publish directory: . (raiz do repositório)
- * 
- * 4. DEPLOY:
- *    - Clique em "Deploy site"
- *    - Netlify gera URL automática
- * 
- * 5. DOMÍNIO CUSTOMIZADO:
- *    - Settings > Domain management
- *    - Adicione seu domínio
- * 
- * VANTAGENS DO NETLIFY:
- * - Deploy automático ao fazer push
- * - Suporte a formulários (sem backend)
- * - Redirects e reescritas de URL
- * - Preview automático de branches
- */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const serviceCards = document.querySelectorAll(".service-card");
+
+
+    serviceCards.forEach(function (card) {
+
+        /*
+         * Indica visualmente que o card é clicável.
+         */
+
+        card.style.cursor = "pointer";
+
+
+        // ----------------------------------------
+        // Foco pelo teclado
+        // ----------------------------------------
+
+        card.addEventListener("focus", function () {
+
+            card.style.outline = "2px solid var(--primary-cyan)";
+            card.style.outlineOffset = "3px";
+
+        });
+
+
+        card.addEventListener("blur", function () {
+
+            card.style.outline = "";
+
+        });
+
+    });
+
+});
+
 
 // ========================================
-// 9. NOTAS PARA DESENVOLVIMENTO FUTURO
+// 13. LOG DE INICIALIZAÇÃO
 // ========================================
 
-/**
- * MELHORIAS POSSÍVEIS:
- * 
- * 1. FORMULÁRIO DE CONTATO:
- *    - Adicionar validação de email
- *    - Enviar dados para backend ou Netlify Forms
- *    - Mensagem de sucesso/erro
- * 
- * 2. GALERIA INTERATIVA:
- *    - Modal/lightbox ao clicar em imagem
- *    - Filtros por categoria
- *    - Lazy loading de imagens
- * 
- * 3. ANÁLISE:
- *    - Google Analytics
- *    - Rastreamento de cliques em WhatsApp
- *    - Heatmap de navegação
- * 
- * 4. SEO:
- *    - Schema.org para estruturados dados
- *    - Sitemap.xml
- *    - robots.txt
- * 
- * 5. PERFORMANCE:
- *    - Minificar CSS e JS
- *    - Compressão de imagens (WebP)
- *    - Service Worker para offline
- * 
- * 6. SEGURANÇA:
- *    - HTTPS (obrigatório)
- *    - Content Security Policy
- *    - Proteção contra XSS
- */
-
-console.log('Script carregado com sucesso!');
-console.log('Site de Serviços de Informática - Versão 1.0');
+console.log("========================================");
+console.log("M³ TECHNOLOGY");
+console.log("Script carregado com sucesso.");
+console.log("Integração com WhatsApp ativa.");
+console.log("========================================");
