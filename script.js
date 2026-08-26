@@ -247,7 +247,7 @@ function enviarServicoParaWhatsApp(card) {
 
     const nomeServico = tituloElemento.textContent.trim();
 
-    const mensagens = {
+   const mensagens = {
 
         "Formatação e Instalação do Sistema": `Olá! 👋
 
@@ -256,6 +256,16 @@ Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
 💻 Serviço: Formatação e Instalação do Sistema
 
 Gostaria de saber o valor do serviço, o prazo para realização e como funciona o procedimento.
+
+Aguardo retorno. Obrigado!`,
+
+        "Formatação sem Perda de Arquivos": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+💾 Serviço: Formatação sem Perda de Arquivos
+
+Preciso formatar meu equipamento, mas gostaria de preservar meus arquivos e documentos importantes. Como funciona o procedimento, qual o valor e o prazo?
 
 Aguardo retorno. Obrigado!`,
 
@@ -332,6 +342,86 @@ Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
 Gostaria de realizar uma avaliação e manutenção preventiva no meu equipamento para verificar possíveis problemas e evitar desgastes.
 
 Gostaria de saber o valor e o prazo para realização do serviço.
+
+Aguardo retorno. Obrigado!`,
+
+        "Montagem de PC": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🖥️ Serviço: Montagem de PC
+
+Já tenho as peças (ou gostaria de ajuda para montar) e quero saber como funciona o serviço de montagem, organização de cabos, prazo e valor.
+
+Aguardo retorno. Obrigado!`,
+
+        "Instalação de Impressoras": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar suporte técnico.
+
+🖨️ Serviço: Instalação e Configuração de Impressora
+
+Preciso de ajuda para instalar e configurar minha impressora no computador/rede Wi-Fi. Qual o valor e disponibilidade para atendimento?
+
+Aguardo retorno. Obrigado!`,
+
+        "Diagnóstico Técnico": `Olá! 👋
+
+Vim pelo site da M³ Technology e preciso de uma avaliação para o meu computador.
+
+🔍 Serviço: Diagnóstico Técnico
+
+Meu equipamento está apresentando falhas/não liga corretamente. Gostaria de agendar uma avaliação técnica para identificar o problema.
+
+Aguardo retorno. Obrigado!`,
+
+        "Otimização Gamer e Alto Desempenho": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de otimizar o desempenho do meu PC.
+
+🎮 Serviço: Otimização Gamer e Alto Desempenho
+
+Gostaria de realizar ajustes no sistema/drivers para melhorar o desempenho e o FPS em jogos e programas pesados. Qual o valor e como funciona?
+
+Aguardo retorno. Obrigado!`,
+
+        "Recuperação de Arquivos": `Olá! 👋
+
+Vim pelo site da M³ Technology e preciso de ajuda com recuperação de dados.
+
+📂 Serviço: Recuperação de Arquivos
+
+Acabei apagando/perdi arquivos importantes e gostaria de verificar a possibilidade de recuperação. Como funciona o diagnóstico e orçamento?
+
+Aguardo retorno. Obrigado!`,
+
+        "Consultoria de Peças e Peça Certa": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de uma consultoria para upgrade/montagem.
+
+💡 Serviço: Consultoria de Peças
+
+Estou querendo montar ou melhorar meu PC e preciso de indicação das melhores peças para o meu orçamento. Como funciona esse atendimento?
+
+Aguardo retorno. Obrigado!`,
+
+        "Atualização e Gravação de BIOS": `Olá! 👋
+
+Vim pelo site da M³ Technology e preciso de um serviço de BIOS.
+
+⚡ Serviço: Atualização / Gravação de BIOS
+
+Preciso atualizar a BIOS da minha placa-mãe (para suporte a novos processadores ou correção de falhas). Qual o valor e o tempo necessário?
+
+Aguardo retorno. Obrigado!`,
+
+        "Instalação de Programas Essenciais": `Olá! 👋
+
+Vim pelo site da M³ Technology e preciso da instalação de aplicativos no meu PC.
+
+⚙️ Serviço: Instalação de Programas Essenciais
+
+Gostaria de solicitar a instalação e configuração de pacotes de programas para uso diário/estudos/trabalho. Qual o valor do serviço?
 
 Aguardo retorno. Obrigado!`,
 
