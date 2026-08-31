@@ -459,7 +459,88 @@ Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
 
 Gostaria de saber o valor do reparo, disponibilidade da peça e prazo para realização do serviço.
 
-Aguardo retorno. Obrigado!`
+Aguardo retorno. Obrigado!`,   
+        // ========================================
+        // DESENVOLVIMENTO DE SITES
+        // ========================================
+
+        "Landing Page": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🌐 Serviço: Landing Page
+
+Tenho interesse em desenvolver uma Landing Page profissional para apresentar meu produto, serviço ou projeto.
+
+Gostaria de saber como funciona o desenvolvimento, o valor, o prazo e o que está incluso no serviço.
+
+Aguardo retorno. Obrigado!`,
+
+        "Portfólio Profissional": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+💼 Serviço: Portfólio Profissional
+
+Tenho interesse em desenvolver um portfólio profissional para apresentar meus projetos, trabalhos, experiências e serviços.
+
+Gostaria de saber como funciona o desenvolvimento, o valor e o prazo para entrega.
+
+Aguardo retorno. Obrigado!`,
+
+        "Site Institucional": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🏢 Serviço: Site Institucional
+
+Tenho interesse em desenvolver um site institucional para minha empresa/projeto.
+
+Gostaria de apresentar minha empresa, serviços, produtos, informações de contato e localização de forma profissional.
+
+Gostaria de saber o valor, prazo e como funciona o desenvolvimento.
+
+Aguardo retorno. Obrigado!`,
+
+        "Site para Serviços": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🛠️ Serviço: Site para Serviços
+
+Tenho interesse em desenvolver um site para apresentar meus serviços de forma profissional e facilitar o contato com meus clientes.
+
+Gostaria de saber como funciona o desenvolvimento, o valor, prazo e quais funcionalidades podem ser incluídas.
+
+Aguardo retorno. Obrigado!`,
+
+        "Loja Virtual": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+🛒 Serviço: Loja Virtual
+
+Tenho interesse em desenvolver uma loja virtual para vender meus produtos pela internet.
+
+Gostaria de saber sobre catálogo de produtos, carrinho de compras, pagamentos, gerenciamento de pedidos e demais funcionalidades disponíveis.
+
+Gostaria também de saber o valor e o prazo para desenvolvimento.
+
+Aguardo retorno. Obrigado!`,
+
+        "Sistema Web": `Olá! 👋
+
+Vim pelo site da M³ Technology e gostaria de solicitar um orçamento.
+
+💻 Serviço: Sistema Web
+
+Tenho interesse em desenvolver um sistema web personalizado para o meu projeto/empresa.
+
+Gostaria de explicar minha ideia e verificar a possibilidade de desenvolvimento, funcionalidades, banco de dados, painel administrativo e demais recursos necessários.
+
+Gostaria de saber como funciona o orçamento e o prazo estimado para desenvolvimento.
+
+Aguardo retorno. Obrigado!`,
     };
 
     /*
